@@ -1,0 +1,10 @@
+[project]
+readme = {file = "README.md", content-type = "text/markdown"}
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "config.settings"
+asyncio_mode = "auto"
+testpaths = [
+    "**/tests.py",
+    "**/tests/test_*.py",
+]
