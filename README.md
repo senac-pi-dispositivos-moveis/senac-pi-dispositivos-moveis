@@ -48,7 +48,8 @@ python manage.py runserver
 
 #### Abrir aplicação no navegador
 
-Acessar o link [http://127.0.0.1:8000](http://127.0.0.1:8000).
+- Acessar aplicação link [http://localhost:8000/](http://localhost:8000/)
+- Administração no link [http://localhost:8000/admin/](http://localhost:8000/admin/) 
 
 ## Frontend
 
