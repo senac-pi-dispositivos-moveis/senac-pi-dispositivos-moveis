@@ -70,7 +70,10 @@ class SpecialistAdmin(admin.ModelAdmin):
     @admin.display(description=__('Specialties'))
     def _specialties(obj: Specialist):
         if obj.specialties:
-            return ', '.join(obj.specialties.name)
+            specialties = [
+                speciality.name for speciality in obj.specialties.all()
+            ]
+            return ', '.join(specialties)
         return None
 
 
