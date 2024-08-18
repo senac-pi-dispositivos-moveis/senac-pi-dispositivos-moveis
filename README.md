@@ -50,6 +50,7 @@ python manage.py runserver
 
 - Acessar aplicação link [http://localhost:8000/](http://localhost:8000/)
 - Administração no link [http://localhost:8000/admin/](http://localhost:8000/admin/) 
+- API no link [http://localhost:8000/api/](http://localhost:8000/api/) 
 
 ## Frontend
 
