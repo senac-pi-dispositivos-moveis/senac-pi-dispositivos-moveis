@@ -26,7 +26,7 @@ class Address(models.Model):
         return (
             f'{self.street.strip()}, '
             f'{self.number.strip()} '
-            f'{self.complement.strip()} - '
+            f'{self.complement.strip()} - ' if self.complement else ''
             f'{self.neighborhood.strip()}, '
             f'{self.city.strip()} - '
             f'{self.state.strip()}, '
