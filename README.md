@@ -1,8 +1,8 @@
 # Projeto Integrador: Desenvolvimento de Sistemas Orientado a Dispositivos Móveis e Baseados na Web
 
-## Backend
-
 [Link para mais informações.](https://docs.google.com/document/d/17MSeyZ_V7msfRx7pNkIjg6NWFoZS1p0K7r8---yF7NQ/edit)
+
+## Backend
 
 ### Configurar ambiente virtual Python
 
@@ -54,4 +54,20 @@ python manage.py runserver
 
 ## Frontend
 
-**…**
+#### Instalar os pacotes necessários
+
+```shell
+npm install
+```
+
+### Rodar a aplicação
+
+```shell
+npm run dev
+```
+
+### Verificar se existem problemaspwd
+
+```shell
+tsc
+```
