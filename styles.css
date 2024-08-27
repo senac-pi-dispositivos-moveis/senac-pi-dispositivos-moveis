@@ -248,3 +248,91 @@ section {
     width: 20px;
 }
 
+@media (max-width: 320px){
+  .mapa{
+      width: 80vw;
+  }
+
+  .result_pesq h2{
+      font-size: 1.2em;
+      letter-spacing: 1px;
+  }
+
+  .lista_clinicas{
+    display: block;
+  }
+
+  .foto_clinica{
+      width: 70px;
+  }
+
+  .titulo{
+      font-size: .7em;
+  }
+
+  .coluna_desc p{
+      font-size: .9em;
+      margin-top: 0px;
+  }
+}
+
+@media (max-width: 375px){
+  .result_pesq h2{
+      font-size: 1.2em;
+      letter-spacing: 1px;
+  }
+  
+  .titulo{
+      font-size: .75em;
+      margin-right: 10px;
+  }
+
+  .lista_clinicas{
+    display: block;
+  }
+
+  .foto_clinica{
+    width: 90px;
+}
+
+  .linha_info_clinica .titulo{
+    margin-right: 10px;
+  }
+
+  .coluna_desc p{
+      font-size: .9em;
+      margin-top: 0px;
+  }
+
+  .star_aval{
+      width: 15px;
+  }
+}
+
+@media (max-width: 425px){
+  .lista_clinicas{
+    display: block;
+  }
+
+  .foto_clinica{
+    width: 90px;
+  }
+
+  .star_aval{
+    width: 15px;
+  }
+}
+
+@media (max-width: 800px){
+  .lista_clinicas{
+    display: block;
+  }
+
+  .foto_clinica{
+    width: 90px;
+  }
+
+  .star_aval{
+    width: 15px;
+  }
+}
