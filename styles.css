@@ -139,3 +139,112 @@ section {
   box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.2);
 }
 
+/*seção clinicas*/
+
+.form_pesq_clin{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.estado_busca, .cidade_busca{
+  width: 80%;
+  border: none;
+  background-color: #ffca4521;
+  justify-content: space-around;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 3px;
+  font-size: 1.3em;
+}
+
+.form_pes_botao{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #1d1d1d;
+  background-color: #ffcb45;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 20px; /* Espaçamento superior para separar do subtítulo */
+}
+
+.form_pes_botao:hover {
+  background-color: #e9a209;
+  box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.2);
+}
+
+.secao_mapa{
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mapa{
+  width: 81%;
+  height: 400px;
+}
+
+.result_pesq{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.result_pesq h2{
+  font-size: 1.563rem;
+  text-align: center;
+  margin-bottom: 32px;
+  margin-top: 20px;
+}
+
+.lista_clinicas{
+    margin-top: 20px;
+    display: inline-flex;
+    justify-content: space-around;
+    width: 80%;
+}
+
+.foto_clinica{
+    width: 150px;
+}
+
+.linha_clinica, .coluna_titulo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.linha_clinica{
+    margin-bottom: 20px;
+}
+
+.coluna_titulo{
+    height: 30px;
+    align-items: center;
+}
+
+.linha_info_clinica{
+    margin-left: 10px;
+}
+
+.linha_info_clinica .titulo{
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-right: 20px;
+}
+
+.star_aval{
+    width: 20px;
+}
+
