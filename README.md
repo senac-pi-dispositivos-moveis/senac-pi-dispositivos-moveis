@@ -1,8 +1,8 @@
 # Projeto Integrador: Desenvolvimento de Sistemas Orientado a Dispositivos Móveis e Baseados na Web
 
-## Backend
-
 [Link para mais informações.](https://docs.google.com/document/d/17MSeyZ_V7msfRx7pNkIjg6NWFoZS1p0K7r8---yF7NQ/edit)
+
+## Backend
 
 ### Configurar ambiente virtual Python
 
@@ -48,7 +48,9 @@ python manage.py runserver
 
 #### Abrir aplicação no navegador
 
-Acessar o link [http://127.0.0.1:8000](http://127.0.0.1:8000).
+- Acessar aplicação link [http://localhost:8000/](http://localhost:8000/)
+- Administração no link [http://localhost:8000/admin/](http://localhost:8000/admin/) 
+- API no link [http://localhost:8000/api/](http://localhost:8000/api/) 
 
 ## Frontend
 
