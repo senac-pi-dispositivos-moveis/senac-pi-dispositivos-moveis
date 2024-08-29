@@ -63,4 +63,9 @@ $(document).ready(function() {
         duration: 2000,
         distance: "20%"
     });
+    ScrollReveal().reveal("#clinicas", {
+        origin: "left", 
+        duration: 2000,
+        distance: "20%"
+    });
 });
