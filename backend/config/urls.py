@@ -1,15 +1,13 @@
 from django.contrib import admin
-from django.urls import path, include
-from rest_framework import routers
-from rest_framework.authtoken import views as rest_views
+from django.contrib.auth import views as auth_views
+from django.urls import path
 
-from core.views import SpecialistViewSet
-
-router = routers.DefaultRouter()
-router.register('specialists', SpecialistViewSet)
+from core.views import home, logins, register
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),
-    path('api/api-token-auth/', rest_views.obtain_auth_token),
+    path('home/', home, name='home'),
+    path('', logins, name='login'),
+    path('logout/', auth_views.logout_then_login, name='logout'),
+    path('register/', register, name='register'),
 ]
