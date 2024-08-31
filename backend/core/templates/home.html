@@ -86,6 +86,7 @@
                 </a>
 
                 <a href="tel+55555555555" id="phone_button">
+
                     <button class="btn-default">
                         <i class="fa-solid fa-phone"></i>
                     </button>
@@ -212,83 +213,69 @@
 
     <section id="clinicas">
         <h2 class="section-title">Clínicas</h2>
-        <form action="" class="form_pesq_clin">
-            <input type="text" name="estado_busca" id="estado_busca"
-                   class="estado_busca" placeholder="Estado">
-            <input type="text" name="cidade_busca" id="cidade_busca"
-                   class="cidade_busca" placeholder="Cidade">
+        <form action="{% url 'home' %}" method="post" class="form_pesq_clin">
+            {% csrf_token %}
+            <label for="estado_busca"></label>
+            <input type="text"
+                 name="state"
+                 id="estado_busca"
+                 class="estado_busca"
+                 placeholder="Estado"
+                 value="{{ form.state.value }}">
+            <label for="cidade_busca"></label>
+            <input type="text"
+                 name="city"
+                 id="cidade_busca"
+                 class="cidade_busca"
+                 placeholder="Cidade"
+                 value="{{ form.city.value }}">
+            <button type="submit" class="form_pes_botao">Buscar</button>
             <a href="#mapa" class="form_pes_botao">Buscar</a>
         </form>
 
         <div class="result_pesq">
             <h2>Resultados da Pesquisa</h2>
-
-            <div class="lista_clinicas">
-                <div class="linha_clinica">
-                    <div class="coluna_foto">
-                        <div>
-                            <img src="{% static 'images/clinicas.png' %}"
-                                 class="foto_clinica">
-                        </div>
-                    </div>
-                    <div class="linha_info_clinica">
-                        <div class="coluna_titulo">
-                            <div class="titulo">Clínica 1</div>
-                            <div>
-
-                                <img src="{% static 'images/star.svg' %}"
-                                     class="star_aval">
-                                <img src="{% static 'images/star.svg' %}"
-                                     class="star_aval">
-                                <img src="{% static 'images/star.svg' %}"
-                                     class="star_aval">
-                                <img src="{% static 'images/star.svg' %}"
-                                     class="star_aval">
-                                <img src="{% static 'images/star.svg' %}"
-                                     class="star_aval">
+            {% if specialists %}
+                <div class="lista_clinicas">
+                    {% for specialist in specialists %}
+                        <div class="linha_clinica">
+                            <div class="coluna_foto">
+                                <div>
+                                    <img src="{% static 'images/clinicas.png' %}"
+                                         class="foto_clinica">
+                                </div>
+                            </div>
+                            <div class="linha_info_clinica">
+                                <div class="coluna_titulo">
+                                    <div class="titulo">{{ specialist.name }}</div>
+                                    <di class="estrelas">
+                                        {% with ''|center:specialist.rating as range %}
+                                        {% for _ in range %}
+                                            <img src="{% static 'images/star.svg' %}"
+                                                class="star_aval"
+                                                alt="">
+                                        {% endfor %}
+                                        {% endwith %}
+                                    </div>
+                                </div>
+                                <div class="coluna_desc">
+                                    <p>{{ specialist.address }}</p>
+                                    <p>
+                                        {% for phone_number in specialist.phone_numbers %}
+                                            <a href="tel:{{ phone_number }}">{{ phone_number }}</a><br>
+                                        {% endfor %}
+                                    </p>
+                                    <p>{{ specialist.specialties|join:" // " }}</p>
+                                    <p>{{ specialist.opening_hours }}</p>
+                                    <p>Neuropsicologia</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="coluna_desc">
-                            <p>Rua 78, Bairro Mangaba - SP <br> Tel: (11)
-                                3245-6995 <br> Funcionamento 08hrs ás 18hrs
-                                <br> Neuropsicologia</p>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
-                <div class="linha_clinica">
-                    <div class="coluna_foto">
-                        <div>
-
-                            <img src="{% static 'images/clinicas.png' %}"
-                                 class="foto_clinica">
-
-                        </div>
-                    </div>
-                    <div class="linha_info_clinica">
-                        <div class="coluna_titulo">
-                            <div class="titulo">Clínica 2</div>
-                            <div>
-                                <img src="{% static 'images/star.svg' %}"
-                                     class="star_aval">
-                                <img src="{% static 'images/star.svg' %}"
-                                     class="star_aval">
-                                <img src="{% static 'images/star.svg' %}"
-                                     class="star_aval">
-                                <img src="{% static 'images/star.svg' %}"
-                                     class="star_aval">
-                                <img src="{% static 'images/star.svg' %}"
-                                     class="star_aval">
-                            </div>
-                        </div>
-                        <div class="coluna_desc">
-                            <p>Rua 12, Bairro Florescer - SP <br> Tel: (11)
-                                3245-6994 <br> Funcionamento 08hrs ás 19hrs
-                                <br> Psicopedagogia</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            {% else %}
+                <p>Não existem clínicas ou profissionais especializados com condições desejadas.</p>
+            {% endif %}
         </div>
 
         <div class="secao_mapa">

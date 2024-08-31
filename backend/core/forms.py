@@ -1,3 +1,4 @@
+from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.models import User
 
@@ -29,3 +30,18 @@ class CustomUserChangeForm(UserChangeForm):
             'username': 'Nome de usuário',
             'email': 'Email',
         }
+
+
+class SearchSpecialistForm(forms.Form):
+    state = forms.CharField(
+        label='Estado',
+        min_length=3,
+        max_length=100,
+        required=False,
+    )
+    city = forms.CharField(
+        label='Cidade',
+        min_length=3,
+        max_length=100,
+        required = False,
+    )
