@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 
 from core.forms import CustomUserCreationForm, SearchSpecialistForm
@@ -27,16 +28,24 @@ def register(request):
 
 
 def logins(request):
+    context = {}
     if request.method == 'POST':
-        username = request.POST['username']
+        email = request.POST['email']
         password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('home')
-        else:
-            messages.error(request, 'Usuário ou senha incorretos.')
-    return render(request, 'login.html')
+        context['email'] = email
+        try:
+            user = authenticate(
+                request,
+                username=User.objects.get(email=email).username,
+                password=password,
+            )
+            if user:
+                login(request, user)
+                return redirect('home')
+        except User.DoesNotExist:
+            pass
+        messages.error(request, 'Usuário ou senha incorretos.')
+    return render(request, 'login.html', context=context)
 
 
 @login_required

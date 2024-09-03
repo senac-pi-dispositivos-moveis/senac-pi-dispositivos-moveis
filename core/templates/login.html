@@ -18,11 +18,15 @@
       <h1 class="title">Bem-vindo</h1>
 
       <!-- Formulário Django -->
-      <form method="POST" action="{% url 'home' %}">
+      <form method="POST">
         {% csrf_token %}
         <div class="input-group">
           <label for="email">E-mail</label>
-          <input type="email" id="email" name="email" required>
+          <input type="email"
+                 id="email"
+                 name="email"
+                 {% if email %}value="{{ email }}"{% endif %}
+                 required>
         </div>
         <div class="input-group">
           <label for="password">Senha</label>
