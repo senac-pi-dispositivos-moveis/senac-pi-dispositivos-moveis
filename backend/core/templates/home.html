@@ -221,14 +221,14 @@
                  id="estado_busca"
                  class="estado_busca"
                  placeholder="Estado"
-                 value="{{ form.state.value }}">
+                 {% if form.state.value %}value="{{ form.state.value }}"{% endif %}>
             <label for="cidade_busca"></label>
             <input type="text"
                  name="city"
                  id="cidade_busca"
                  class="cidade_busca"
                  placeholder="Cidade"
-                 value="{{ form.city.value }}">
+                 {% if form.city.value %}value="{{ form.city.value }}"{% endif %}>
             <button type="submit" class="form_pes_botao">Buscar</button>
         </form>
 
@@ -273,7 +273,7 @@
                     {% endfor %}
                 </div>
             {% else %}
-                <p>Não existem clínicas ou profissionais especializados com condições desejadas.</p>
+                <p>Não existem clínicas ou profissionais especializados com as condições desejadas.</p>
             {% endif %}
         </div>
 
