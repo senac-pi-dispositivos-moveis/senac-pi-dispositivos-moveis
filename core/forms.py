@@ -1,25 +1,34 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import (
+    UserCreationForm,
+    UserChangeForm,
+    UsernameField,
+)
 from django.contrib.auth.models import User
 
 
 class CustomUserCreationForm(UserCreationForm):
+    username = UsernameField(required=False)
     error_messages = {
-        'password_mismatch': "As senhas não coincidem.",
+        'password_mismatch': 'As senhas não coincidem.',
     }
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'password1', 'password2')
+        fields = (
+            'username',
+            'email',
+            'password1',
+            'password2',
+        )
         labels = {
-            'username': 'Nome de usuário',
             'email': 'Email',
             'password1': 'Senha',
             'password2': 'Confirme a senha',
         }
-        help_texts = {
-            'username': None,
-        }
+
+    def clean_username(self) -> str:
+        return forms.EmailField().clean(self.data['email'])
 
 
 class CustomUserChangeForm(UserChangeForm):
