@@ -77,4 +77,8 @@ header {
         list-style: none;
         text-align: center;
     }
+    
+    #mobile_nav_list .nav-item .mobile-form{
+        padding-top: .8rem;
+    }
 }
